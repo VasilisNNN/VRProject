@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4024013256027625231
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 516.09705
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.811142
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 422.74994
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 690a14275b422694f826bf0169690702, type: 3}
+      propertyPath: m_Name
+      value: Tools Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 690a14275b422694f826bf0169690702, type: 3}
+--- !u!1 &4258509060719012446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 690a14275b422694f826bf0169690702, type: 3}
+  m_PrefabInstance: {fileID: 4024013256027625231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1294074606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258509060719012446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2582991, y: 1.2541106, z: 0.9117165}
+  m_Center: {x: 0.055704843, y: -0.101592235, z: 0.068453506}
+--- !u!114 &1294074604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258509060719012446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f9f6a3772a0fb4b8e43ab2f7c8ccb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemNum: 1001
+  ItemCount: 1
+  OnColl: 0
+  PickedInCar: 0
+  AClip: {fileID: 0}
+  BodySlotsUI: {fileID: 0}
+--- !u!114 &1294074605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258509060719012446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

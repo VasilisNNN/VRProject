@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ea2315908d6a2a84d8114367449ebb1b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 244541
+  packageName: Retro Horror Template
+  packageVersion: 2.3.1
+  assetPath: Assets/HorrorEngine/ExampleContent/Weapons/Knife/Knife.prefab
+  uploadId: 630421

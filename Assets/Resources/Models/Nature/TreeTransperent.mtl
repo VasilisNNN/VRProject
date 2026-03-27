@@ -1,0 +1,109 @@
+# Blender MTL File: 'None'
+# Material Count: 10
+
+newmtl None
+Ns 500
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+
+newmtl building1
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\building1.png
+
+newmtl dirt
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\dirt.png
+
+newmtl fence
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\fence.png
+
+newmtl lamp
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\light.png
+
+newmtl leaves
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\leaves_gradient_big.png
+
+newmtl mailbox
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\mailbox.png
+
+newmtl rock
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\rock.png
+
+newmtl sidewalk
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\sidewalk.png
+
+newmtl trunk
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\Christian\\Documents\\PS1Shader\\Assets\\PSXEffects\\Example\\Textures\\new_scene\\trunk.png
