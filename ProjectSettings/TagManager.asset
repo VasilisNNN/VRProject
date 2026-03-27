@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Slot
+  - Water
+  - Wood
+  - Concrete
+  - Mud
+  - Grass
+  - Metal
+  - Sand
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Overlay UI
+  - Water
+  - UI
+  - Player
+  - Enemy
+  - Trigger
+  - Ground
+  - OnPlayerObject
+  - NoPlayerColl
+  - PostProcessing
+  - Objects
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - OVROverlayCanvas Rendering
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
