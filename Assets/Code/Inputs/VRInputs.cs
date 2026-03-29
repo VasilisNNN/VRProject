@@ -81,7 +81,7 @@ public class VRInputs :  InputModeBase
         _verticalPush = Input.GetButtonDown("Vertical");
         _horizontalPush = Input.GetButtonDown("Horizontal");
     
-        fire = Input.GetMouseButtonDown(0);
+        fire = OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
         fireHold = Input.GetMouseButton(0);
         aim = Input.GetMouseButton(1);
 
