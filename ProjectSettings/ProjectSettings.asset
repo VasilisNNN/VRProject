@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Marginalact
-  productName: TraumaPlayground
+  productName: ShootingRange
   defaultCursor: {fileID: 2800000, guid: ac31595c226407842a69388b7d315655, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}

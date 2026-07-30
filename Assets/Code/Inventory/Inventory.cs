@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
@@ -845,6 +846,9 @@ public class Inventory : MonoBehaviour
 
     void DrawInventory(bool tf)
     {
+
+        ONOFF(InventoryUIOB, tf);
+
         SetSlots();
 
   
@@ -1433,7 +1437,7 @@ public class Inventory : MonoBehaviour
     public void ONOFF(GameObject g, bool TF)
     {
         if (g == null) return;
-
+        //g.SetActive(TF);
         TurnComponentsONOFF(g, TF);
         ToggleThroughChild(g.transform, TF);
 
@@ -1461,12 +1465,6 @@ public class Inventory : MonoBehaviour
         if (g.GetComponent<Image>() != null)
             g.GetComponent<Image>().enabled = TF;
 
-        if (g.GetComponent<Tilemap>() != null)
-            g.GetComponent<Tilemap>().enabled = TF;
-
-        if (g.GetComponent<TilemapRenderer>() != null)
-            g.GetComponent<TilemapRenderer>().enabled = TF;
-
 
         if (g.GetComponent<Text>() != null)
             g.GetComponent<Text>().enabled = TF;
@@ -1478,7 +1476,10 @@ public class Inventory : MonoBehaviour
         if (g.GetComponent<BoxCollider2D>() != null)
             g.GetComponent<BoxCollider2D>().enabled = TF;
 
-    
+
+        if (g.GetComponent<TextMeshProUGUI>() != null)
+            g.GetComponent<TextMeshProUGUI>().enabled = TF;
+
     }
 
 

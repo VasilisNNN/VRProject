@@ -24,7 +24,10 @@ public class SimpleShoot : MonoBehaviour
     private InputMode IM;
     private GameObject tempFlash;
 
-    public bool inHand { get; set; }
+    public GrabObject Grab;
+    public List<GameObject> Bullets = new List<GameObject>();
+
+
     void Start()
     {
         if (barrelLocation == null)
@@ -34,7 +37,15 @@ public class SimpleShoot : MonoBehaviour
             gunAnimator = GetComponentInChildren<Animator>();
 
         IM = InitializeOnAwake.IM;
-        Shootray = GetComponent<CollList>();
+        Shootray = transform.Find("Shootray").GetComponent<CollList>();
+
+
+
+        Bullets.Add(Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation));
+            
+
+        for (int i = 0; i < Bullets.Count; i++)
+            Bullets[i].SetActive(false);
 
     }
 
@@ -49,13 +60,18 @@ public class SimpleShoot : MonoBehaviour
     {
 
         if (!IM.Fire) return;
-        if (!inHand) return;
-
+        print("FIRE " + name);
+        if (!Grab.inHand) return;
+        print("Grab " + name);
         gunAnimator.SetTrigger("Fire");
         Shoot();
 
+        if (Shootray.rayhit == null) return;
+
         for (int i =0;i< Shootray.rayhit.Count;i++)
         {
+            if (Shootray.rayhit[i] == null) continue;
+
             if (Shootray.rayhit[i].GetComponent<ShootTarget>() != null)
             {
 
@@ -85,9 +101,30 @@ public class SimpleShoot : MonoBehaviour
         if (!bulletPrefab)
         { return; }
 
-    
-        Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        for (int i = 0; i < Bullets.Count; i++)
+        {
+            if (Bullets[i].activeInHierarchy)
+            {
+                if(Vector3.Distance(Bullets[i].transform.position, transform.position)>15)
+                Bullets[i].SetActive(false);
+              
+            }
 
+            if (!Bullets[i].activeInHierarchy)
+            {
+               
+                Bullets[i].SetActive(true);
+                Bullets[i].GetComponent<Rigidbody>().position = barrelLocation.position;
+                Bullets[i].GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+                return;
+            }
+
+
+        }
+
+
+
+      
     }
 
 

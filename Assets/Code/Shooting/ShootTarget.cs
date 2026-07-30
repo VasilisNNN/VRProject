@@ -13,11 +13,17 @@ public class ShootTarget : MonoBehaviour
 
     void Update()
     {
-        if (HP <= 0)
-        {
-            Destroy(gameObject);
-            pl.MoveExplosion(transform.position);
-        }
+        DeathManager();
+
+    }
+
+    void DeathManager()
+    {
+        if (HP > 0) return;
+        
+        Destroy(gameObject);
+        pl.MoveExplosion(transform.position);
+        
 
     }
 }

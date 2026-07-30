@@ -84,9 +84,7 @@ public class Enemies : MonoBehaviour
         }
 
 
-        if (NotInTheMorning && pl.DayNight.Day_Cycle == DayAndNight.DayCycle.Morning) return;
-
- 
+   
 
         if (pl.Game_SPEED > 0 && (pl.DayNight.Day_Cycle == Day_Cycle || Day_Cycle == DayAndNight.DayCycle.AllTime))
         {

@@ -170,7 +170,7 @@ public class InputMode : MonoBehaviour
         LeftMouseButtonDown = CurrentInputs.LeftMouseButtonDown;
         RightMouseButtonDown = CurrentInputs.RightMouseButtonDown;
         SpaceB = CurrentInputs.space_b;
-        Fire = CurrentInputs.LeftMouseButtonDown;
+        Fire = CurrentInputs.fire;
         Aim = CurrentInputs.RightMouseButton;
 
         // MouseScroll = CurrentInputs.MouseScroll;

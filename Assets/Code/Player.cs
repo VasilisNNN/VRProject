@@ -256,10 +256,7 @@ public class Player : MonoBehaviour
         MainCamera = VRCamera.centerEyeAnchor.GetComponent<Camera>();
        
        
-        GameObject.Find("Canvas").GetComponent<Canvas>().worldCamera = MainCamera;
-        GameObject.Find("Canvas").transform.parent = MainCamera.transform;
-        GameObject.Find("Canvas").transform.localPosition = new Vector3(0, 0, 1);
-        GameObject.Find("Canvas").transform.localEulerAngles = Vector3.zero;
+       
        
 
 #endif

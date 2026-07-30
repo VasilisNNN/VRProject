@@ -413,6 +413,7 @@ MonoBehaviour:
   shotPower: 700
   ejectPower: 250
   Shootray: {fileID: 2383907114282657162}
+  Grab: {fileID: 2254106316937652491}
 --- !u!95 &7931135122034502231 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2489192430752802369, guid: 87e308cb23eea97419b3c2623d8bb3fa, type: 3}

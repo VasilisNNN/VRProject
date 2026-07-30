@@ -8,7 +8,7 @@ public class InitializeOnAwake : MonoBehaviour
 
     public static Player pl;
     public static SaveLoad SL;
-    public static Camera MainCamera;
+    public static Camera MainCamera, UICamera;
     public static Inventory inv;
     public static InputMode IM;
     public static Menu _Menu;
@@ -22,7 +22,7 @@ public class InitializeOnAwake : MonoBehaviour
     void Awake()
     {
         GameObject plob;
-
+        
         if (test)
         {
             plob = Instantiate(Resources.Load<GameObject>("Prefabs/Characters/PlayerFPSNoHands"));
@@ -49,12 +49,22 @@ public class InitializeOnAwake : MonoBehaviour
         SL = plob.GetComponent<SaveLoad>();
         plob.AddComponent<LanguageControll>();
         Language_Controll = plob.GetComponent<LanguageControll>();
-
-       
+      
         _Menu.LC = Language_Controll;
         SL.Init();
         RoomMeshDelay = Time.fixedTime + 4;
-      // MainCamera = plob.transform.Find("Main Camera").GetComponent<Camera>();
+
+        if (GameObject.Find("UICamera") != null)
+        {
+            UICamera = GameObject.Find("UICamera").GetComponent<Camera>();
+
+            GameObject.Find("Canvas").GetComponent<Canvas>().worldCamera = MainCamera;
+            GameObject.Find("Canvas").transform.parent = UICamera.transform;
+            GameObject.Find("Canvas").transform.localPosition = new Vector3(0, 0, 1);
+            GameObject.Find("Canvas").transform.localEulerAngles = Vector3.zero;
+        }
+
+        // MainCamera = plob.transform.Find("Main Camera").GetComponent<Camera>();
     }
 
     private void Update()
