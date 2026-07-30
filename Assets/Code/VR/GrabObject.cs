@@ -9,7 +9,7 @@ public class GrabObject : MonoBehaviour
     private InputMode IM;
     private Rigidbody _rigidbody;
     private Outline _Outline;
-    private List<BoxCollider> Colliders;
+    private List<BoxCollider> Colliders = new List<BoxCollider>();
     void Start()
     {
         pl = InitializeOnAwake.pl;
@@ -24,7 +24,7 @@ public class GrabObject : MonoBehaviour
 
     void Update()
     {
-        if (pl.ViewColl(gameObject)) _Outline.enabled = true;
+        if (pl.Viewcoll_obj_Ray_right.Contains(gameObject)) _Outline.enabled = true;
         else _Outline.enabled = false;
 
         if (pl.ViewColl(gameObject) && IM.enter_b)

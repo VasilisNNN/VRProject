@@ -680,7 +680,7 @@ public class Player : MonoBehaviour
         desiredVelocity = new Vector3(desiredVelocity.x, gravity, desiredVelocity.z);
         else desiredVelocity = new Vector3(desiredVelocity.x, 0, desiredVelocity.z);
 
-        controller.velocity = desiredVelocity;
+      //  controller.velocity = desiredVelocity;
 
     }
 
@@ -806,7 +806,7 @@ public class Player : MonoBehaviour
 
         StraifHeadRotation = Mathf.Lerp(StraifHeadRotation, IM._horizontal * -0.5f, Time.deltaTime*5);
 
-#if !UNITY_XR && !UNITY_ANDROID 
+#if !UNITY_XR && !UNITY_ANDROID
         if (PlayerRotationLimits != Vector2.zero)
             MainCamera.transform.localRotation = Quaternion.Euler(xRotation, Mathf.Clamp(yRotation, PlayerRotationLimits.x, PlayerRotationLimits.y), 0f);
         else
@@ -817,17 +817,19 @@ public class Player : MonoBehaviour
    
 #endif
 
-#if  UNITY_ANDROID && UNITY_EDITOR
-        if (PlayerRotationLimits != Vector2.zero)
-            MainCamera.transform.localRotation = Quaternion.Euler(xRotation, Mathf.Clamp(yRotation, PlayerRotationLimits.x, PlayerRotationLimits.y), 0f);
-        else
-            MainCamera.transform.localRotation = Quaternion.Euler(xRotation, yRotation, HeadBob().y + StraifHeadRotation);
+#if UNITY_ANDROID && UNITY_EDITOR
+        /*  if (PlayerRotationLimits != Vector2.zero)
+              MainCamera.transform.localRotation = Quaternion.Euler(xRotation, Mathf.Clamp(yRotation, PlayerRotationLimits.x, PlayerRotationLimits.y), 0f);
+          else
+              MainCamera.transform.localRotation = Quaternion.Euler(xRotation, yRotation, HeadBob().y + StraifHeadRotation);
 
-    if (CamShakeTimer<=0 )
-            MainCamera.transform.localPosition = CameraStartPos + HeadBob();
 
+
+      if (CamShakeTimer<=0 )
+              MainCamera.transform.localPosition = CameraStartPos + HeadBob();
+         */
 #endif
-     
+
 
 
 

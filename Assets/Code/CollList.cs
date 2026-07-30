@@ -26,7 +26,7 @@ public class CollList : MonoBehaviour
 
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, transform.forward*100, new Color(1, 1, 1, 1));
+        Debug.DrawRay(transform.position, transform.forward*100, new Color(1, 1, 1, 1),0.01f);
 
         if (Physics.Raycast( ray, out hit, MaxDistance, mask.value))
         {

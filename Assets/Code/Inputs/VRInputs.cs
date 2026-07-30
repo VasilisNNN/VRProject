@@ -61,19 +61,21 @@ public class VRInputs :  InputModeBase
         space_b = Input.GetButtonDown("Space");
 
 
-        horizontal = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x;
-        vertical = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y;
+        horizontal_R = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x;
+        vertical_R = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).y;
+
+ 
 
 
-        if(OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) ||
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) ||
            OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
             enter_b = true;
         else
             enter_b = false;
 
 
-        horizontal_R = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
-        vertical_R = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
+        horizontal = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
+        vertical = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
 
         horizontal_Folder = Input.GetAxis("Horizontal_R");
   

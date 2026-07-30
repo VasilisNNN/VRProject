@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[AddComponentMenu("Nokobot/Modern Guns/Simple Shoot")]
+
 public class SimpleShoot : MonoBehaviour
 {
     [Header("Prefab Refrences")]
@@ -22,6 +22,9 @@ public class SimpleShoot : MonoBehaviour
 
     public CollList Shootray;
     private InputMode IM;
+    private GameObject tempFlash;
+
+    public bool inHand { get; set; }
     void Start()
     {
         if (barrelLocation == null)
@@ -31,70 +34,78 @@ public class SimpleShoot : MonoBehaviour
             gunAnimator = GetComponentInChildren<Animator>();
 
         IM = InitializeOnAwake.IM;
-
+        Shootray = GetComponent<CollList>();
 
     }
 
     void Update()
     {
-        
-        if (IM.Fire)
-        {
-            //Calls animation on the gun that has the relevant animation events that will fire
-            gunAnimator.SetTrigger("Fire");
-            Shoot();
+        FireManager();
 
-            foreach (GameObject g in Shootray.coll_obj)
-            {
-                if (g.GetComponent<ShootTarget>() != null)
-                {
-
-                    g.GetComponent<ShootTarget>().HP = 0;
-                }
-            }
-
-        }
     }
 
 
-    //This function creates the bullet behavior
+    void FireManager()
+    {
+
+        if (!IM.Fire) return;
+        if (!inHand) return;
+
+        gunAnimator.SetTrigger("Fire");
+        Shoot();
+
+        for (int i =0;i< Shootray.rayhit.Count;i++)
+        {
+            if (Shootray.rayhit[i].GetComponent<ShootTarget>() != null)
+            {
+
+                Shootray.rayhit[i].GetComponent<ShootTarget>().HP = 0;
+            }
+        }
+
+    }
+
+
+
+    
+
     void Shoot()
     {
         if (muzzleFlashPrefab)
         {
-            //Create the muzzle flash
-            GameObject tempFlash;
+           
+        
             tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
 
-            //Destroy the muzzle flash effect
+  
             Destroy(tempFlash, destroyTimer);
         }
 
-        //cancels if there's no bullet prefeb
+
         if (!bulletPrefab)
         { return; }
 
-        // Create a bullet and add force on it in direction of the barrel
+    
         Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
 
     }
 
-    //This function creates a casing at the ejection slot
+
     void CasingRelease()
     {
-        //Cancels function if ejection slot hasn't been set or there's no casing
+        
         if (!casingExitLocation || !casingPrefab)
         { return; }
 
-        //Create the casing
+
         GameObject tempCasing;
         tempCasing = Instantiate(casingPrefab, casingExitLocation.position, casingExitLocation.rotation) as GameObject;
-        //Add force on casing to push it out
+      
         tempCasing.GetComponent<Rigidbody>().AddExplosionForce(Random.Range(ejectPower * 0.7f, ejectPower), (casingExitLocation.position - casingExitLocation.right * 0.3f - casingExitLocation.up * 0.6f), 1f);
-        //Add torque to make casing spin in random direction
+      
         tempCasing.GetComponent<Rigidbody>().AddTorque(new Vector3(0, Random.Range(100f, 500f), Random.Range(100f, 1000f)), ForceMode.Impulse);
 
-        //Destroy casing after X seconds
+   
         Destroy(tempCasing, destroyTimer);
     }
 

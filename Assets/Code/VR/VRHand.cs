@@ -11,6 +11,7 @@ public class Finger
  
     public OVRInput.Axis1D Input;
 
+
     public Vector3 StartPos;
     public Vector3 EndPos;
 }

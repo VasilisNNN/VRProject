@@ -41,14 +41,13 @@ public class MovementVR : MonoBehaviour
        right = pl.MainCamera.transform.right;
 
 
-        nextstep = forward * IM._vertical_R  + right * IM._horizontal_R;
+        nextstep = forward * IM._vertical + right * IM._horizontal;
         
         Vector3 nextstepcorrected = new Vector3(
             Mathf.Clamp(nextstep.x, -3f, 3f), 0,
                Mathf.Clamp(nextstep.z, -3f, 3f)) ;
 
           if (NavMesh.SamplePosition(plpos + movepos + nextstepcorrected, out hit, 0.1f, NavMesh.AllAreas))
-
 
         if (!pl._Menu.MenuONOFF)
             movepos += nextstepcorrected  * Time.deltaTime * 3;
@@ -61,17 +60,22 @@ public class MovementVR : MonoBehaviour
         }
 
 
-        if (Mathf.Abs(IM._vertical_R) < 0.01f &&
-            Mathf.Abs(IM._horizontal_R) < 0.01f && 
-            movepos!= Vector3.zero)
+  
+        
+            _transform.position = plpos + movepos + new Vector3(0,0.1f,0);
+
+
+        if (Mathf.Abs(IM._vertical) < 0.01f &&
+      Mathf.Abs(IM._horizontal) < 0.01f &&
+      movepos != Vector3.zero)
         {
 
-            pl.transform.position += movepos;
+          //  pl._transform.position += movepos;
+            pl.GetComponent<Rigidbody>().position += movepos;
             movepos = Vector3.zero;
+            return;
         }
 
-           if (NavMesh.SamplePosition(plpos + movepos, out hit,0.2f, NavMesh.AllAreas))
-            _transform.position = plpos + movepos + new Vector3(0,0.1f,0);
 
 
     }
