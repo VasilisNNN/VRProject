@@ -23,7 +23,8 @@ public class Player : MonoBehaviour
     public List<GameObject> CarMeleecoll_obj = new List<GameObject>();
     public List<GameObject> Gun_Ray = new List<GameObject>();
 
-
+    public Transform RightHandAnchor;
+    public Transform LeftHandAnchor;
 
     [HideInInspector]
     public List<GameObject> StraightRoads = new List<GameObject>();
@@ -248,21 +249,28 @@ public class Player : MonoBehaviour
     private float HeadBobSpeed_X, HeadBobSpeed_Y, StraifHeadRotation;
     private Vector3 PlayerViewStartPos, CameraStartPos;
     private AudioClip ScanClip;
+
+    public VRHand Right_VRHand, Left_VRHand;
+
+
     private void Awake()
     {
         MainCamera = VRCamera.centerEyeAnchor.GetComponent<Camera>();
 
+
 #if UNITY_ANDROID || UNITY_XR_OPENXR
         MainCamera = VRCamera.centerEyeAnchor.GetComponent<Camera>();
-       
-       
-       
-       
+
+
+
+     
 
 #endif
     }
     void Start()
     {
+        Right_VRHand = GameObject.Find("Rig_RightHand").GetComponent<VRHand>();
+        Left_VRHand = GameObject.Find("Left_VRHand").GetComponent<VRHand>();
 
         TEST = true;
 
@@ -384,6 +392,11 @@ public class Player : MonoBehaviour
 
         ViewTriggerLeft = GameObject.Find("ViewTriggerLeft").GetComponent<CollList>();
         ViewTriggerRight = GameObject.Find("ViewTriggerRight").GetComponent<CollList>();
+     
+        RightHandAnchor = GameObject.Find("RightHandAnchor").transform;
+        LeftHandAnchor = GameObject.Find("LeftHandAnchor").transform;
+
+
         StartTimer = Time.fixedTime + 0.5f;
         FOV_MainDefault = 60;
 

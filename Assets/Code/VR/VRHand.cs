@@ -18,7 +18,8 @@ public class Finger
 public class VRHand : MonoBehaviour
 {
     public List<Finger> Fingers = new List<Finger>();
-
+        public bool isHolding { get; set; }
+    private float triggered;
     private void Start()
     {
         foreach (Finger f in Fingers)
@@ -29,13 +30,18 @@ public class VRHand : MonoBehaviour
     }
     void Update()
     {
+     
 
         foreach (Finger f in Fingers)
         {
+            triggered = OVRInput.Get(f.Input);
+
+            if (isHolding) triggered = 1;
+
             f.Pointer.localPosition = new Vector3(
-                Mathf.Lerp(f.StartPos.x, f.EndPos.x, OVRInput.Get(f.Input)),
-                Mathf.Lerp(f.StartPos.y, f.EndPos.y, OVRInput.Get(f.Input)),
-                Mathf.Lerp(f.StartPos.z, f.EndPos.z, OVRInput.Get(f.Input)));
+                Mathf.Lerp(f.StartPos.x, f.EndPos.x, triggered),
+                Mathf.Lerp(f.StartPos.y, f.EndPos.y, triggered),
+                Mathf.Lerp(f.StartPos.z, f.EndPos.z, triggered));
 
 
         }

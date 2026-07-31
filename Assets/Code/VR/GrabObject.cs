@@ -12,6 +12,7 @@ public class GrabObject : MonoBehaviour
     private List<BoxCollider> Colliders = new List<BoxCollider>();
 
     public bool inHand { get; set; }
+    public bool inRightHand, inLeftHand;
     void Start()
     {
         pl = InitializeOnAwake.pl;
@@ -32,7 +33,7 @@ public class GrabObject : MonoBehaviour
             return; 
         }
 
-        if (CollissionCheck()) 
+        if (RightCollissionCheck() || LeftCollissionCheck()) 
         { 
             _Outline.enabled = true;
             return;
@@ -43,13 +44,26 @@ public class GrabObject : MonoBehaviour
     }
 
 
-    bool CollissionCheck()
+    bool RightCollissionCheck()
     {
         for (int i = 0; i < Colliders.Count; i++)
         {
-            if (pl.ViewColl(Colliders[i].gameObject))
+            if (pl.Viewcoll_obj_Ray_right.Contains(Colliders[i].gameObject))
                 return true;
             
+        }
+        return false;
+
+    }
+
+
+    bool LeftCollissionCheck()
+    {
+        for (int i = 0; i < Colliders.Count; i++)
+        {
+            if (pl.Viewcoll_obj_Ray_left.Contains(Colliders[i].gameObject))
+                return true;
+
         }
         return false;
 
@@ -62,18 +76,34 @@ public class GrabObject : MonoBehaviour
 
 
 
-        if (CollissionCheck() && IM.enter_b)
+        if ((RightCollissionCheck() || LeftCollissionCheck()) && IM.enter_b)
         {
             for (int i = 0; i < Colliders.Count; i++)
             {
                 Colliders[i].isTrigger = true;
             }
-                transform.parent = pl.VRCamera.rightHandAnchor;
+
+
+            if (RightCollissionCheck())
+            {
+                pl.Right_VRHand.isHolding = true;
+                inRightHand = true;
+                transform.parent = pl.RightHandAnchor;
+            }
+            else if (LeftCollissionCheck())
+            {
+                pl.Left_VRHand.isHolding = true;
+                inLeftHand = true;
+                transform.parent = pl.LeftHandAnchor;
+            }
             transform.localPosition = Vector3.zero;
             transform.localEulerAngles = Vector3.zero;
             _rigidbody.isKinematic = true;
             inHand = true;
+
+           
         }
+
 
         if (IM.exit_b)
         {
@@ -82,6 +112,10 @@ public class GrabObject : MonoBehaviour
             {
                 Colliders[i].isTrigger = false;
             }
+
+            if (inLeftHand) pl.Left_VRHand.isHolding = false;
+            if (inRightHand) pl.Right_VRHand.isHolding = false;
+
 
 
             inHand = false;

@@ -137,6 +137,8 @@ PlayerSettings:
   preloadedAssets:
   - {fileID: 11400000, guid: a80f8faf7cd32fa489fb09d6a4626ce6, type: 2}
   - {fileID: 11400000, guid: 59c4642ed1ba6914c9eb56a28af5f3bf, type: 2}
+  - {fileID: 11400000, guid: 53a0fe8cc9b5edb43ad5b6bb3079cbf6, type: 2}
+  - {fileID: -7162052426916726588, guid: 0a38870e9c97a794a85cc04fba7d01a0, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -156,7 +158,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Marginalact.TraumaPlayground
+    Android: com.Marginalact.ShootingRange
     Standalone: com.Marginalact.TraumaPlayground
   buildNumber:
     Standalone: 0
@@ -277,7 +279,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 0ae03bf9f490a114681a08da8c27aea0, type: 3}
+      m_Icon: {fileID: 2800000, guid: 57b7efa3c5fc8cd4b83db514ec36d210, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
