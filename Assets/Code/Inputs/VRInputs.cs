@@ -107,7 +107,7 @@ public class VRInputs :  InputModeBase
         rightMouseButton = Input.GetMouseButtonDown(1);
 
 
-        exit_b = OVRInput.GetDown(OVRInput.Button.Two);
+        exit_b = OVRInput.GetDown(OVRInput.Button.One);
         menu_b = OVRInput.GetDown(OVRInput.Button.Start);
 
         //inventory_b = Input.GetKeyDown(KeyCode.I);

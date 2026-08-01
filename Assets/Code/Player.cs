@@ -270,7 +270,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         Right_VRHand = GameObject.Find("Rig_RightHand").GetComponent<VRHand>();
-        Left_VRHand = GameObject.Find("Left_VRHand").GetComponent<VRHand>();
+        Left_VRHand = GameObject.Find("Rig_LeftHand").GetComponent<VRHand>();
 
         TEST = true;
 
