@@ -45,9 +45,7 @@ public class BodySlots : MonoBehaviour
 
     private Text PlayerStats;
 
-    [HideInInspector]
-    public Gun PlayerGun;
-
+  
 
     private Camera Cam;
 
@@ -82,7 +80,7 @@ public class BodySlots : MonoBehaviour
         inv.ONOFF(gameObject, false);
 
         
-        PlayerGun = pl.GetComponent<Gun>();
+
 
  
 
@@ -268,7 +266,7 @@ public class BodySlots : MonoBehaviour
         if(inv == null || pl == null || inv.GetItemInDatabase(id) == null)
             return;
 
-        if (inv.GetItemInDatabase(id).itemID > -1)
+       /* if (inv.GetItemInDatabase(id).itemID > -1)
             {
       
            
@@ -306,7 +304,7 @@ public class BodySlots : MonoBehaviour
                 PlayerGun.SetCarMeleeID(id, durability, ammo);
 
             }
-        }
+        }*/
 
         
             AddSubtractStats(id, 1);
@@ -361,7 +359,7 @@ public class BodySlots : MonoBehaviour
 
                         _ItemsSlotsUI.Slots[x].items[y] = item;
                         
-                        if (inv.GetItemInDatabase(id).itemID > -1)
+                       /* if (inv.GetItemInDatabase(id).itemID > -1)
                         {
                             
                             if (inv.GetItemInDatabase(id)._itemtype == Item.itemtype.gun)
@@ -393,7 +391,7 @@ public class BodySlots : MonoBehaviour
 
                             }
 
-                        }
+                        }*/
                         return;
 
                     }
@@ -590,7 +588,7 @@ public class BodySlots : MonoBehaviour
     
     void DestroyGunOnLowDurability()
     {
-        if ( PlayerGun.GunIDInHand <= -1)
+     /*   if ( PlayerGun.GunIDInHand <= -1)
             return;
 
         for (int x = 0; x < Slots.Length; x++)
@@ -603,11 +601,7 @@ public class BodySlots : MonoBehaviour
                     {
                         if (Slots[x].Slot[y].GetComponent<Slot>()._bodypart == inv.GetItemInDatabase(PlayerGun.GunIDInHand)._bodypart[b] && inv.GetItemInDatabase(PlayerGun.GunIDInHand).Durability<=0)
                         {
-                            /*
-                            AttackEffect = Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/Effects/Explosion_Wood_Effect"));
-
-                            AttackEffect.transform.position = PlayerGun.GunObject.transform.position;
-                            */
+                          
 
                             AddSubtractStats(Slots[x].items[y].itemID, -1);
 
@@ -625,7 +619,7 @@ public class BodySlots : MonoBehaviour
             }
         }
 
-
+        */
 
 
     }

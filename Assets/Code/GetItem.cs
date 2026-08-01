@@ -22,14 +22,13 @@ using UnityEngine.SceneManagement;
 
         private Outline _Outline;
     public ItemsSlotsUI BodySlotsUI;
-    private Gun _Gun;
+
 
     private void Awake()
     {
 
         BodySlotsUI = GameObject.Find("BodySlots").GetComponent<ItemsSlotsUI>();
-        _Gun = InitializeOnAwake.pl.GetComponent<Gun>();
-        inv = InitializeOnAwake.pl.GetComponent<Inventory>();
+     inv = InitializeOnAwake.pl.GetComponent<Inventory>();
 
         name += SceneManager.GetActiveScene().name;
 
@@ -85,8 +84,7 @@ using UnityEngine.SceneManagement;
                             if (BodySlotsUI.Slots[x].items[y].itemID == -1)
                             {
                                 BodySlotsUI.AddSlotItem(ItemNum, x, y);
-                                _Gun.SetGunID(ItemNum, inv.GetItemInDatabase(ItemNum).Durability, inv.GetItemInDatabase(ItemNum).AmmoInGun);
-                                        print("Getitem " + ItemNum);
+                             
                             }
                             else
                             {
@@ -137,7 +135,7 @@ using UnityEngine.SceneManagement;
                                     if (BodySlotsUI.Slots[x].items[y].itemID == -1)
                                     {
                                         BodySlotsUI.AddSlotItem(ItemNum, x, y);
-                                        _Gun.SetGunID(ItemNum, inv.GetItemInDatabase(ItemNum).Durability, inv.GetItemInDatabase(ItemNum).AmmoInGun);
+                                      
 
                                     }
                                     else

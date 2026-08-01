@@ -13,6 +13,9 @@ public class GrabObject : MonoBehaviour
 
     public bool inHand { get; set; }
     public bool inRightHand, inLeftHand;
+
+    public int ID;
+
     void Start()
     {
         pl = InitializeOnAwake.pl;
@@ -23,6 +26,8 @@ public class GrabObject : MonoBehaviour
         for (int i = 0; i < transform.Find("Colliders").transform.childCount; i++)
             Colliders.Add(transform.Find("Colliders").transform.GetChild(i).GetComponent<BoxCollider>());
         _Outline.OutlineColor = new Color(1, 1, 1, 1);
+
+
     }
 
     void OutlineManager()
@@ -46,6 +51,7 @@ public class GrabObject : MonoBehaviour
 
     bool RightCollissionCheck()
     {
+        if(pl.RightHandObject !=null) return false;
         for (int i = 0; i < Colliders.Count; i++)
         {
             if (pl.Viewcoll_obj_Ray_right.Contains(Colliders[i].gameObject))
@@ -59,6 +65,8 @@ public class GrabObject : MonoBehaviour
 
     bool LeftCollissionCheck()
     {
+        if (pl.LeftHandObject != null) return false;
+
         for (int i = 0; i < Colliders.Count; i++)
         {
             if (pl.Viewcoll_obj_Ray_left.Contains(Colliders[i].gameObject))
@@ -89,13 +97,25 @@ public class GrabObject : MonoBehaviour
                 pl.Right_VRHand.isHolding = true;
                 inRightHand = true;
                 transform.parent = pl.RightHandAnchor;
+                _rigidbody.position = pl.RightHandAnchor.position;
+                pl.RightHandObject = gameObject;
+
             }
+
+
+
+
             else if (LeftCollissionCheck())
             {
                 pl.Left_VRHand.isHolding = true;
                 inLeftHand = true;
                 transform.parent = pl.LeftHandAnchor;
+                _rigidbody.position = pl.LeftHandAnchor.position;
+                pl.LeftHandObject = gameObject;
             }
+
+
+        
             transform.localPosition = Vector3.zero;
             transform.localEulerAngles = Vector3.zero;
             _rigidbody.isKinematic = true;
@@ -107,6 +127,8 @@ public class GrabObject : MonoBehaviour
 
         if (IM.exit_b)
         {
+            if (pl.LeftHandObject = gameObject) pl.LeftHandObject = null;
+            if (pl.RightHandObject = gameObject) pl.RightHandObject = null;
 
             for (int i = 0; i < Colliders.Count; i++)
             {

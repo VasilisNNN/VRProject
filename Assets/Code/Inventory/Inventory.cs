@@ -184,8 +184,7 @@ public class Inventory : MonoBehaviour
     private int Discard_CurrentSlot;
     private List<GameObject> DiscardYesNoButtons = new List<GameObject>();
 
-    private Gun _Gun;
-
+ 
     void Awake()
     {
 
@@ -201,7 +200,7 @@ public class Inventory : MonoBehaviour
 
         }
 
-        _Gun = GetComponent<Gun>();
+
 
         EscapeInventory = GameObject.Find("EscapeInventory");
 

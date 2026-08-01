@@ -10,8 +10,7 @@ public class Rifle : GeneralGun
     {
         Grab = GetComponent<GrabObject>();
 
-
-
+     
         IM = InitializeOnAwake.IM;
         Shootray = transform.Find("Shootray").GetComponent<CollList>();
 

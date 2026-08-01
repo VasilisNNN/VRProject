@@ -207,7 +207,7 @@ public class Player : MonoBehaviour
 
     public float UpdateRange = 200;
 
-    public Gun _Gun { get; set; }
+
 
     public Transform _transform { get; private set; }
 
@@ -251,7 +251,7 @@ public class Player : MonoBehaviour
     private AudioClip ScanClip;
 
     public VRHand Right_VRHand, Left_VRHand;
-
+    public GameObject RightHandObject, LeftHandObject;
 
     private void Awake()
     {
@@ -317,7 +317,7 @@ public class Player : MonoBehaviour
 
 
    
-        _Gun = GetComponent<Gun>();
+       
         SL = GetComponent<SaveLoad>();
      
         for (int i = 0; i < 15; i++)
@@ -393,8 +393,8 @@ public class Player : MonoBehaviour
         ViewTriggerLeft = GameObject.Find("ViewTriggerLeft").GetComponent<CollList>();
         ViewTriggerRight = GameObject.Find("ViewTriggerRight").GetComponent<CollList>();
      
-        RightHandAnchor = GameObject.Find("RightHandAnchor").transform;
-        LeftHandAnchor = GameObject.Find("LeftHandAnchor").transform;
+        RightHandAnchor = GameObject.Find("RightHand_Holder").transform;
+        LeftHandAnchor = GameObject.Find("LeftHand_Holder").transform;
 
 
         StartTimer = Time.fixedTime + 0.5f;

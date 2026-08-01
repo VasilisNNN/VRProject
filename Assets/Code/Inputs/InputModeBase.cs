@@ -12,7 +12,7 @@ public abstract class InputModeBase
     public bool run ;
     public bool aim;
     public bool jump;
-
+    public bool reload;
 
     public bool _verticalPush;
     public bool _horizontalPush;
@@ -112,5 +112,6 @@ public abstract class InputModeBase
     public abstract void MainUpdate();
 
     public abstract bool MouseCollideWithButton(GameObject Button);
-    
+
+    public abstract bool GetEnter();
 }

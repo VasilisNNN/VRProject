@@ -152,7 +152,7 @@ public class InputMode : MonoBehaviour
 
         if (!CurrentInputs.PudState) return;
 
-        enter_b = CurrentInputs.enter_b;
+        enter_b = CurrentInputs.GetEnter();
         enter_b_hold = CurrentInputs.enter_b_hold;
         inventory_b = CurrentInputs.inventory_b;
 

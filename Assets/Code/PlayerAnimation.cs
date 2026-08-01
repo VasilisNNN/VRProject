@@ -10,7 +10,7 @@ public class PlayerAnimation : MonoBehaviour
     private Player pl;
     private InputMode IM;
     private Menu _Menu;
-    public Gun _Gun { get; set; }
+
     private float AnimTransDelay;
     private string CurrentAnimation;
     public float AnimationPause { get; private set; }
@@ -26,8 +26,6 @@ public class PlayerAnimation : MonoBehaviour
         pl = InitializeOnAwake.pl;
         IM = InitializeOnAwake.IM;
         _Menu = InitializeOnAwake._Menu;
-        _Gun = GetComponent<Gun>();
-
 
         if (pl.Body != null)
           BodyAnim = pl.Body.GetComponent<Animator>();
@@ -62,8 +60,6 @@ public class PlayerAnimation : MonoBehaviour
         }
 
 
-        if (_Gun.ShotDurationTimer > 0) return;
-        if (_Gun.ReloadTimer > 0) return;
         if (_Menu.MenuONOFF) IM.Aim = false;
 
 
@@ -89,9 +85,7 @@ public class PlayerAnimation : MonoBehaviour
         if (pl.moveDirection.magnitude * pl.Speed < 0.1f)
         {
 
-            if (_Gun.GunInHandItem.itemID <= -1)
-            {
-            
+           
             
                 if (FromPicked)
                 PlayBodyAnimNoTransition("Standing");
@@ -99,33 +93,18 @@ public class PlayerAnimation : MonoBehaviour
 
                 FromPicked = false;
                 return;
-            }
-            if (_Gun.GunInHandItem._Guntype == Item.Guntype.knife)
-            {
-                PlayBodyAnim("KnifeStanding", 0.1f);
-            }
+        
 
 
             return;
         }
 
-        if (_Gun.GunInHandItem.itemID <= -1)
-        {
+       
             PlayBodyAnim("Walking", 0.1f);
             return;
-        }
+        
 
 
-        if (_Gun.GunInHandItem._Guntype == Item.Guntype.knife)
-        {
-
-            PlayBodyAnim("KnifeWalking", 0.1f);
-        }
-        else
-        {
-            print("PistolWalking");
-            PlayBodyAnim("PistolWalking",0.1f);
-        }
 
 
     }

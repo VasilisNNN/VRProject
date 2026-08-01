@@ -1,11 +1,5 @@
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting.FullSerializer;
-using UnityEditor;
 
 
 
@@ -67,12 +61,6 @@ public class VRInputs :  InputModeBase
  
 
 
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) ||
-           OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
-            enter_b = true;
-        else
-            enter_b = false;
-
 
         horizontal = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;
         vertical = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y;
@@ -113,6 +101,7 @@ public class VRInputs :  InputModeBase
         //inventory_b = Input.GetKeyDown(KeyCode.I);
         // journal_b = Input.GetKeyDown(KeyCode.J);
         //  map = Input.GetKeyDown(KeyCode.M);
+        reload = OVRInput.GetDown(OVRInput.Button.Four);
 
         run = Input.GetKey(KeyCode.LeftShift);
 
@@ -146,6 +135,21 @@ public class VRInputs :  InputModeBase
         }
 
         return false;
+
+    }
+
+
+    public override bool GetEnter()
+    {
+
+
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) ||
+           OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger) ||
+            Input.GetButtonDown("Enter") || Input.GetMouseButtonDown(0)) 
+            return true;
+        else 
+            return false;
+
 
     }
 

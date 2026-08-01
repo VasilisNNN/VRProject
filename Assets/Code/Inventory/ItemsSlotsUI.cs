@@ -898,26 +898,6 @@ public class ItemsSlotsUI : MonoBehaviour
 
         UP.AddSubtractStats(Slots[CurrentRow].items[CurrentSlot].itemID, -1);
 
-        if (UP.PlayerGun.GunIDInHand == Slots[CurrentRow].items[CurrentSlot].itemID)
-        {
-            UP.PlayerGun.SetGunID(-1, 0, 0);
-        }
-
-        if (UP.PlayerGun.GunIDInHand == Slots[CurrentRow].items[CurrentSlot].itemID)
-        {
-            UP.PlayerGun.SetGunID(-1, 0, 0);
-        }
-
-        if (UP.PlayerGun.CarFrontGunID == Slots[CurrentRow].items[CurrentSlot].itemID)
-         UP.PlayerGun.SetCarFrontGunID(-1, 0, 0);
-        
-        if (UP.PlayerGun.CarBackGunID == Slots[CurrentRow].items[CurrentSlot].itemID)
-         UP.PlayerGun.SetCarBackGunID(-1, 0, 0);
-        
-        if (UP.PlayerGun.CarMeleeID == Slots[CurrentRow].items[CurrentSlot].itemID)
-         UP.PlayerGun.SetCarMeleeID(-1, 0, 0);
-
-        
 
         pl.inv.BufferItem = pl.inv.DeepCopyItem(Slots[CurrentRow].items[CurrentSlot].itemID, Slots[CurrentRow].items[CurrentSlot].Count, Slots[CurrentRow].items[CurrentSlot].Durability, Slots[CurrentRow].items[CurrentSlot].AmmoInGun);
 

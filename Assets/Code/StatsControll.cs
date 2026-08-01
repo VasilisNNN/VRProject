@@ -58,7 +58,7 @@ public class StatsControll : MonoBehaviour
     private Player pl;
     private Inventory inv;
 
-    private Gun gun;
+
 
 
     public bool Friend;
@@ -118,7 +118,7 @@ public class StatsControll : MonoBehaviour
         WorkerRebirthClip = Resources.Load<AudioClip>("Sound/Objects/WorkerRebirth_1");
         
 
-        gun = InitializeOnAwake.pl.GetComponent<Gun>();
+
         
        /* HPUI = Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/UI/HPUI"), GameObject.Find("Canvas").transform);
         HPUI.transform.position = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + 0.6f * 1.2f, transform.position.z));

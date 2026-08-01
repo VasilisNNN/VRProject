@@ -27,7 +27,7 @@ public abstract class Weapon : MonoBehaviour
         NextFireTime = Time.time + FireRate;
     }
 
-    public virtual void Reload() { }
+
 
     public virtual void Equip() { }
 

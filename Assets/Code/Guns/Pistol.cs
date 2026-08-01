@@ -35,6 +35,7 @@ public class Pistol : GeneralGun
 
     void Update()
     {
+        Reload();
         FireManager();
 
     }
@@ -66,7 +67,6 @@ public class Pistol : GeneralGun
         }
 
     }
-
 
 
 

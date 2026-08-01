@@ -88,7 +88,7 @@ public class PCKeyboardInputs :  InputModeBase
         }
         else _verticalPush = false;
 
-        enter_b = Input.GetButtonDown("Enter");
+      
 
         leftMouseButton = Input.GetMouseButtonDown(0);
         leftMouseButtonDown = Input.GetMouseButtonDown(0);
@@ -136,6 +136,19 @@ public class PCKeyboardInputs :  InputModeBase
         }
 
         return false;
+
+    }
+
+
+    public override bool GetEnter()
+    {
+
+
+        if (Input.GetButtonDown("Enter"))
+            return true;
+        else
+            return false;
+
 
     }
 
