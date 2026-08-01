@@ -42,8 +42,9 @@ public class Rifle : GeneralGun
     void FireManager()
     {
 
-        if (!IM.Fire) return;
-        print("FIRE " + name);
+
+        if (!IM.Fire && pl.RightHandObject == gameObject) return;
+        if (!IM.FireLeft && pl.LeftHandObject == gameObject) return;
 
         if (!Grab.inHand) return;
         print("Grab " + name);

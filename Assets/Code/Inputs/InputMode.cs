@@ -35,6 +35,7 @@ public class InputMode : MonoBehaviour
     public bool SpaceB2 { get; set; }
     public bool _vertical_button { get; set; }
     public bool Fire { get; set; }
+    public bool FireLeft { get; set; }
     public bool Reload { get; set; }
     public bool Aim { get; set; }
     public bool run { get; set; }
@@ -171,6 +172,7 @@ public class InputMode : MonoBehaviour
         RightMouseButtonDown = CurrentInputs.RightMouseButtonDown;
         SpaceB = CurrentInputs.space_b;
         Fire = CurrentInputs.fire;
+        FireLeft = CurrentInputs.fireleft;
         Aim = CurrentInputs.RightMouseButton;
 
         // MouseScroll = CurrentInputs.MouseScroll;

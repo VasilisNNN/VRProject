@@ -18,6 +18,7 @@ public abstract class InputModeBase
     public bool _horizontalPush;
 
     public bool fire;
+    public bool fireleft;
     public bool fireHold;
 
     public bool enter_b;

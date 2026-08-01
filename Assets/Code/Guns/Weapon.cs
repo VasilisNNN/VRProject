@@ -17,6 +17,7 @@ public abstract class Weapon : MonoBehaviour
     
     public InputMode IM { get; set; }
     public GrabObject Grab { get; set; }
+    public Player pl { get; set; }
     public virtual bool CanFire()
     {
         return Time.time >= NextFireTime;

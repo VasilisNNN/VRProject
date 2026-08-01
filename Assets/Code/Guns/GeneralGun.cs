@@ -107,18 +107,19 @@ public class GeneralGun : Weapon
 
         for (int i = 0; i < ReloadColl.coll_obj.Count; i++)
         {
-            if (ReloadColl.coll_obj[i].GetComponent<GrabObject>().ID == AmmoID)
-            {
-                if (ReloadColl.coll_obj[i].GetComponent<GrabObject>().inHand)
-                {
-                    ReloadColl.coll_obj[i].GetComponent<Rigidbody>().isKinematic = true;
-                    ReloadColl.coll_obj[i].transform.parent = MagazineParent.transform.parent;
-                    ReloadColl.coll_obj[i].transform.localPosition = Vector3.zero;
-                    AmmoCase = ReloadColl.coll_obj[i];
-                    ReloadColl.coll_obj[i].GetComponent<GrabObject>().inHand = false;
-                }
+            if (ReloadColl.coll_obj[i] != pl.LeftHandObject && ReloadColl.coll_obj[i] != pl.RightHandObject) continue;
 
-            }
+            if (ReloadColl.coll_obj[i].GetComponent<GrabObject>().ID != AmmoID) continue;
+
+            
+            ReloadColl.coll_obj[i].GetComponent<Rigidbody>().isKinematic = true;
+            ReloadColl.coll_obj[i].transform.parent = MagazineParent.transform.parent;
+            ReloadColl.coll_obj[i].transform.localPosition = Vector3.zero;
+            AmmoCase = ReloadColl.coll_obj[i];
+            ReloadColl.coll_obj[i].GetComponent<GrabObject>().inHand = false;
+                
+
+            
         }
 
 

@@ -11,7 +11,7 @@ public class Pistol : GeneralGun
         Grab = GetComponent<GrabObject>();
 
 
-
+        pl = InitializeOnAwake.pl;
         IM = InitializeOnAwake.IM;
         Shootray = transform.Find("Shootray").GetComponent<CollList>();
 
@@ -44,12 +44,11 @@ public class Pistol : GeneralGun
     void FireManager()
     {
 
-        if (!IM.Fire) return;
-        print("FIRE " + name);
+        if (!IM.Fire && pl.RightHandObject == gameObject) return;
+        if (!IM.FireLeft && pl.LeftHandObject == gameObject) return;
 
         if (!Grab.inHand) return;
-        print("Grab " + name);
-        
+
         gunAnimator.SetTrigger("Fire");
         Shoot();
 

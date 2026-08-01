@@ -396,7 +396,7 @@ MonoBehaviour:
   Ray: 0
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8193
   MaxDistance: 30
   FinalObject: {fileID: 0}
 --- !u!1001 &5519845293444631574
