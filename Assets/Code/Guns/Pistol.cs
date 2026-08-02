@@ -50,6 +50,16 @@ public class Pistol : GeneralGun
         if (!Grab.inHand) return;
 
         gunAnimator.SetTrigger("Fire");
+
+        if (CurrentAmmo < bullets_In_Shot)
+        {
+        
+            gunAnimator.SetTrigger("Empty");
+            return;
+        }
+
+
+
         Shoot();
 
         if (Shootray.rayhit == null) return;

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class GeneralGun : Weapon
 {
     public int max_Ammo;
-    public int bullets_In_Shot;
+    public int bullets_In_Shot = 1;
 
     public int MagazineSize = 30;
     public int CurrentAmmo = 30;
@@ -51,7 +51,7 @@ public class GeneralGun : Weapon
             Destroy(tempFlash, destroyTimer);
         }
 
-       
+
 
         if (!bulletPrefab)
         { return; }
@@ -64,7 +64,7 @@ public class GeneralGun : Weapon
                     Bullets[i].SetActive(false);
 
             }
-
+            CurrentAmmo-= bullets_In_Shot;
             if (!Bullets[i].activeInHierarchy)
             {
                 CasingRelease();
@@ -115,6 +115,7 @@ public class GeneralGun : Weapon
             ReloadColl.coll_obj[i].GetComponent<Rigidbody>().isKinematic = true;
             ReloadColl.coll_obj[i].transform.parent = MagazineParent.transform.parent;
             ReloadColl.coll_obj[i].transform.localPosition = Vector3.zero;
+            ReloadColl.coll_obj[i].transform.localEulerAngles = Vector3.zero;
             AmmoCase = ReloadColl.coll_obj[i];
             ReloadColl.coll_obj[i].GetComponent<GrabObject>().inHand = false;
                 

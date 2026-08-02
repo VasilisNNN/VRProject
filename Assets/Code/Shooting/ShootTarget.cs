@@ -10,6 +10,7 @@ public class ShootTarget : MonoBehaviour
     public float RespawnDelay = 0;
     private float RespawnTimer;
     private MeshRenderer _Mesh;
+    private BoxCollider _Box;
     private int StartHP;
     void Start()
     {
@@ -32,7 +33,7 @@ public class ShootTarget : MonoBehaviour
         {
             HP = StartHP;
             _Mesh.enabled = true;
-    
+            _Box.enabled = true;
         }
     }
 
@@ -51,6 +52,7 @@ public class ShootTarget : MonoBehaviour
         {
             RespawnTimer = Time.fixedTime + RespawnDelay;
             _Mesh.enabled = false;
+            _Box.enabled = false;
         }
 
 
